@@ -85,7 +85,9 @@ foreach($string as $items)
 
     }
 
-    header('Location: echos.php');
+    //header('Location: echos.php');
+
+    echo "<br/><a href='echos.php'>Echos</a>";
 
 
 }
