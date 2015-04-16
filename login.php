@@ -85,6 +85,8 @@ foreach($string as $items)
 
     }
 
+    header('Location: echos.php');
+
 
 }
 else // Not logged in
