@@ -31,8 +31,9 @@ $url = "https://api.twitter.com/1.1/statuses/home_timeline.json";
 $requestMethod = "GET";
 //this is the creation of get_field
 $getfield = '?screen_name='.$_SESSION['twitter_id'].'&since:'.$prev_date;
-$homeid=$_SESSION['idstr'];
-echo $homeid."<br>";
+//$homeid=$_SESSION['idstr'];
+//echo $homeid."<br>";
+$homeid=$_SESSION['twitter_id'];
 
 
 //echo $getfield."<br>";
