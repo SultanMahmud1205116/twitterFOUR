@@ -33,7 +33,7 @@ $getfield = '?screen_name='.$_SESSION['twitter_id'].'&since:'.$prev_date;
 echo $getfield."<br>";
 
  
-//$getfield = '?screen_name=1205116_sm&count=30';
+$getfield = '?screen_name=1205116_sm&count=30';
  
 $twitter = new TwitterAPIExchange($settings);
 /*
@@ -94,7 +94,7 @@ foreach($string as $items)
 
     //header('Location: echos.php');
 
-    echo "<br/><a href='echos.php'>Echos</a>";
+    //echo "<br/><a href='echos.php'>Echos</a>";
 
 
 }
