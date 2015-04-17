@@ -22,7 +22,7 @@ if(isset($_GET['oauth_token']))
 				$_SESSION['name']=$content->name;
 				$_SESSION['image']=$content->profile_image_url;
 				$_SESSION['twitter_id']=$content->screen_name;
-				$_SESSION['twitter_idstr']=$content->id_str;
+				$_SESSION['idstr']=$content->id_str;
 				
 				//redirect to main page.
 				header('Location: login.php'); 
