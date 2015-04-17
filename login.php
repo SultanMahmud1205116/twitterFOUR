@@ -32,6 +32,8 @@ $requestMethod = "GET";
 //this is the creation of get_field
 $getfield = '?screen_name='.$_SESSION['twitter_id'].'&since:'.$prev_date;
 $homeid=$_SESSION['idstr'];
+echo $homeid."<br>";
+
 
 //echo $getfield."<br>";
 
