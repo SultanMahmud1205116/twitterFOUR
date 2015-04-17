@@ -13,7 +13,7 @@ if(isset($_SESSION['name']) && isset($_SESSION['twitter_id'])) //check whether u
 	//echo "Image :<img src='".$_SESSION['image']."'/><br>";
 	//echo "<br/><a href='logout.php'>Logout</a>";
 
-    echo "twitter Id is: ".$_SESSION['twitter_id'];
+    //echo "twitter Id is: ".$_SESSION['twitter_id'];
 
 	$settings = array(
     'oauth_access_token' => "3146903359-n1BViBTMztqSd0QIuUGfx8Toa109JqB9h7Czwh3",
@@ -26,7 +26,7 @@ $url = "https://api.twitter.com/1.1/statuses/home_timeline.json";
  
 $requestMethod = "GET";
  
-$getfield = '?screen_name=1205116_sm&count=30';
+$getfield = '?screen_name=1205116_sm';
  
 $twitter = new TwitterAPIExchange($settings);
 /*
