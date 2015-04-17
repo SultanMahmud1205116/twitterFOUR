@@ -8,12 +8,12 @@ include('config.php');
 if(isset($_SESSION['name']) && isset($_SESSION['twitter_id'])) //check whether user already logged in with twitter
 {
 
-	echo "Name :".$_SESSION['name']."<br>";
-	echo "Twitter ID :".$_SESSION['twitter_id']."<br>";
-	echo "Image :<img src='".$_SESSION['image']."'/><br>";
-	echo "<br/><a href='logout.php'>Logout</a>";
+	//echo "Name :".$_SESSION['name']."<br>";
+	//echo "Twitter ID :".$_SESSION['twitter_id']."<br>";
+	//echo "Image :<img src='".$_SESSION['image']."'/><br>";
+	//echo "<br/><a href='logout.php'>Logout</a>";
 
-
+    echo "twitter Id is: ".$_SESSION['twitter_id'];
 
 	$settings = array(
     'oauth_access_token' => "3146903359-n1BViBTMztqSd0QIuUGfx8Toa109JqB9h7Czwh3",
