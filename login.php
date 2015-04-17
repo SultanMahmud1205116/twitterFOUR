@@ -82,7 +82,7 @@ foreach($string as $items)
         
         */
 
-        echo "user id :".$_SESSION['twitter_id']."<br />"
+        //echo "user id :".$_SESSION['twitter_id']."<br />"
         echo "post id : ".$items['id_str']."<br />";
         echo "poster ID : ".$items['user']['id_str']."<br />";
         echo "post : ".$items['text']."<br />";
