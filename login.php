@@ -21,12 +21,19 @@ if(isset($_SESSION['name']) && isset($_SESSION['twitter_id'])) //check whether u
     'consumer_key' => "w5TqlKvu2baoRKxZm6xPgUZfs",
     'consumer_secret' => "Mc1klDqUy380T41HiE3famsxprnul73Eo2k99GtBtmsttbyCVi"
 );
+$date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
+$prev_date = date('Y-m-d', strtotime($date .' -1 day'));
  
 $url = "https://api.twitter.com/1.1/statuses/home_timeline.json";
  
 $requestMethod = "GET";
+
+$getfield = '?screen_name='.$_SESSION['twitter_id'].'&ince:'.$prev_date;
+
+echo $getfield."<br>";
+
  
-$getfield = '?screen_name=1205116_sm';
+//$getfield = '?screen_name=1205116_sm&count=30';
  
 $twitter = new TwitterAPIExchange($settings);
 /*
