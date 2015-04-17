@@ -33,7 +33,7 @@ $requestMethod = "GET";
 $getfield = '?screen_name='.$_SESSION['twitter_id'].'&since:'.$prev_date;
 //$homeid=$_SESSION['idstr'];
 //echo $homeid."<br>";
-$homeid=$_SESSION['twitter_id'];
+//$homeid=$_SESSION['twitter_id'];
 
 
 //echo $getfield."<br>";
@@ -82,7 +82,7 @@ foreach($string as $items)
         
         */
 
-        echo "user id :".$homeid."<br />"
+        echo "user id :".$_SESSION['twitter_id']."<br />"
         echo "post id : ".$items['id_str']."<br />";
         echo "poster ID : ".$items['user']['id_str']."<br />";
         echo "post : ".$items['text']."<br />";
