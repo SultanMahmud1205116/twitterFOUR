@@ -78,7 +78,7 @@ foreach($string as $items)
         
         */
 
-        echo "user id :".$_SESSION['idstr']."<br />"
+        //echo "user id :".$_SESSION['idstr']."<br />"
         echo "post id : ".$items['id_str']."<br />";
         echo "poster ID : ".$items['user']['id_str']."<br />";
         echo "post : ".$items['text']."<br />";
