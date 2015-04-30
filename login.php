@@ -32,6 +32,7 @@ $requestMethod = "GET";
 //this is the creation of get_field
 $getfield = '?screen_name='.$_SESSION['twitter_id'].'&since:'.$prev_date;
 $homeid=$_SESSION['idstr'];
+$homename=$_SESSION['name'];
 //echo $homeid."<br>";
 //$homeid=$_SESSION['twitter_id'];
 
@@ -83,7 +84,48 @@ foreach($string as $items)
         */
 
         //echo "user id :".$_SESSION['twitter_id']."<br />"
+
+
+        /*
+        //database starts here
+
+        $userID=$homeid;
+        $postID=$itemsp['id_str'];
+        $posterID=$items['user']['id_str'];
+        $post=$items['text'];
+        $post_time=$items['created_at'];
+        $numberOfRetweets=$items['retweet_count'];
+        $numberOfFavourites=$items['user']['favourites_count'];
+
+        //the following portion is for inserting into post_info
+        $insert=$db->prepare("INSERT INTO post_info (postID, userID, post, posterID, time, numberOfFavourites, numberOfRetweets) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $insert->bind_param('sssssss',$postID,$userID,$post,$posterID,$post_time,$numberOfFavourites,$numberOfRetweets);
+
+        $insert->execute();
+
+
+        //insertion into post_info ends here......
+
+
+
+        //the following is for inserting into user_info
+
+        $insert=$db->prepare("INSERT INTO user_info (userID, screen_name) VALUES (?, ?)");
+            $insert->bind_param('ss',$homeid,$last_name);
+
+        //insertion into user_info ends here
+
+
+        //database ends here..........
+        */
+
+
+
+
+
+        
         echo "user id : ".$homeid."<br>";
+        echo "user name: ".$homename."<br>";
         echo "post id : ".$items['id_str']."<br />";
         echo "poster ID : ".$items['user']['id_str']."<br />";
         echo "post : ".$items['text']."<br />";
@@ -91,7 +133,7 @@ foreach($string as $items)
         echo "post time : ".$items['created_at']."<br />";
         echo " # of retweets : ".$items['retweet_count']."<br />";
         echo " # of likes : ".$items['user']['favourites_count']."<br /><hr />";
-
+        
 
         
 
