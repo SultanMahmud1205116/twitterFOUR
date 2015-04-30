@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'db/connect.php';
 require_once('twitteroauth/twitteroauth.php');
 require_once('TwitterAPIExchange.php');
 include('config.php');
@@ -8,12 +9,7 @@ include('config.php');
 if(isset($_SESSION['name']) && isset($_SESSION['twitter_id'])) //check whether user already logged in with twitter
 {
 
-	//echo "Name :".$_SESSION['name']."<br>";
-	//echo "Twitter ID :".$_SESSION['twitter_id']."<br>";
-	//echo "Image :<img src='".$_SESSION['image']."'/><br>";
-	//echo "<br/><a href='logout.php'>Logout</a>";
-
-    //echo "twitter Id is: ".$_SESSION['twitter_id'];
+	
 
 	$settings = array(
     'oauth_access_token' => "3146903359-n1BViBTMztqSd0QIuUGfx8Toa109JqB9h7Czwh3",
@@ -33,61 +29,26 @@ $requestMethod = "GET";
 $getfield = '?screen_name='.$_SESSION['twitter_id'].'&since:'.$prev_date;
 $homeid=$_SESSION['idstr'];
 $homename=$_SESSION['name'];
-//echo $homeid."<br>";
-//$homeid=$_SESSION['twitter_id'];
 
-
-//echo $getfield."<br>";
-
- 
-//$getfield = '?screen_name=1205116_sm&count=30';
  
 $twitter = new TwitterAPIExchange($settings);
-/*
-echo "<pre>";
-print_r($twitter->setGetfield($getfield)
-             ->buildOauth($url, $requestMethod)
-             ->performRequest()) ;
-echo "</pre>";
-*/
+
 $string = json_decode($twitter->setGetfield($getfield)
 ->buildOauth($url, $requestMethod)
 ->performRequest(),$assoc = TRUE);
 if($string["errors"][0]["message"] != "") {echo "<h3>Sorry, there was a problem.</h3><p>Twitter returned the following error message:</p><p><em>".$string[errors][0]["message"]."</em></p>";exit();}
 foreach($string as $items)
     {
-        /*
-        echo "Time and Date of Tweet: ".$items['created_at']."<br />";
-        echo "Tweet: ". $items['text']."<br />";
-        echo "Tweeted by: ". $items['user']['name']."<br />";
-        echo "Screen name: ". $items['user']['screen_name']."<br />";
-        echo "Followers: ". $items['user']['followers_count']."<br />";
-        echo "Friends: ". $items['user']['friends_count']."<br />";
-        echo "Listed: ". $items['user']['listed_count']."<br /><hr />";
-        */
-
-        /*
-
-        $data = array (
-            'postID' => $items['id_str'],
-            'userID' => $items['user']['id_str'],
-            'post'   => $items['text'],
-            'postProvider' => $items['user']['name'],
-            'time' => $items['created_at'],
-            'numberOfFavourites' => $items['user']['favourites_count'],
-            'numberOfRetweets'   => $items['user']['favourites_count']
-            );
-
-        $this->db->insert('tPOst',$data);
+        
 
         
-        */
-
-        //echo "user id :".$_SESSION['twitter_id']."<br />"
 
 
         /*
         //database starts here
+
+
+        //insertion into post_info starts here
 
         $userID=$homeid;
         $postID=$itemsp['id_str'];
@@ -110,8 +71,10 @@ foreach($string as $items)
 
         //the following is for inserting into user_info
 
-        $insert=$db->prepare("INSERT INTO user_info (userID, screen_name) VALUES (?, ?)");
-            $insert->bind_param('ss',$homeid,$last_name);
+        $insert2=$db->prepare("INSERT INTO user_info (userID, screen_name) VALUES (?, ?)");
+        $insert2->bind_param('ss',$homeid,$homename);
+        $insert2->execute();
+
 
         //insertion into user_info ends here
 
@@ -123,7 +86,7 @@ foreach($string as $items)
 
 
 
-        
+        // the dollwoing does the echoing
         echo "user id : ".$homeid."<br>";
         echo "user name: ".$homename."<br>";
         echo "post id : ".$items['id_str']."<br />";
@@ -141,9 +104,7 @@ foreach($string as $items)
 
     }
 
-    //header('Location: echos.php');
-
-    //echo "<br/><a href='echos.php'>Echos</a>";
+  
 
 
 }
