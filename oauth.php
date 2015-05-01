@@ -43,6 +43,7 @@ else
 }
 else //Error. redirect to Login Page.
 {
+	//%%%%% the problem may lie here.............
 	header('Location: http://hayageek.com/examples/oauth/twitter/login.html'); 
 
 }
